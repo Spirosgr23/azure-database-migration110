@@ -1,48 +1,49 @@
-# Azure Database Migration
-### By Spyridon Manouras
-Email: spirosmanu@gmail.com  
-Started on: 23/01/2024
+# Azure SQL Database Project Documentation
 
 ## Project Overview
-This project showcases the architectural and implementation skills in cloud-based database systems on Microsoft Azure. The primary objective is to establish a production environment database and migrate it to Azure SQL Database, demonstrating cloud engineering expertise.
 
-## Current Progress
-### Initial Setup
-- **Virtual Machine Setup**: Established a Windows Virtual Machine (VM) on Microsoft Azure to serve as the cornerstone of the production environment. This VM emulates the functions of a Windows server, replicating the operations of an on-premise system within a company.
-- **Network Configuration and Firewall Rules**: Configured the appropriate network settings and firewall rules to establish a connection to the VM using the RDP protocol.
-- **Remote Connection**: Initiated a remote connection to the VM using Microsoft Remote Desktop and the RDP protocol, providing direct access to the VM's operating system for efficient management and configuration.
-- **SQL Server Installation**: Installed SQL Server and SQL Server Management Studio (SSMS) on the VM. These tools are crucial for proficient database management and mirror the capabilities of a corporate database server.
-- **Production Database Creation**: Created the production database by restoring from a backup file of the AdventureWorks database. This sample database emulates a fictional manufacturing company's operations, including various tables, views, stored procedures, and a diverse dataset.
+This documentation outlines the comprehensive steps taken to architect and implement a secure, cloud-based database system on Microsoft Azure. It encapsulates the entire process from initial setup to integration with Microsoft Entra ID, emphasizing the strategic implementation of geo-replication and failover procedures.
 
-### Recent Developments
-- **Database Connectivity**: Successfully established connections to both the local SQL Server (Windows) and the Azure SQL Database using Azure Data Studio.
-- **Schema Comparison and Migration**: 
-  - Utilized the SQL Server Schema Compare extension in Azure Data Studio for schema comparison.
-  - Completed schema comparison, highlighting differences between the local SQL Server database and the Azure SQL Database.
-- **Data Migration**:
-  - Leveraged the Azure SQL Migration extension within Azure Data Studio.
-  - Executed the data migration process from the on-premise database to the Azure SQL Database. The steps included:
-    1. **Initiating Migration**: Through Azure Data Studio, the migration process was initiated by selecting the source (local SQL Server) and the target (Azure SQL Database).
-    2. **Migration Validation**: Performed a preliminary validation check to identify any potential issues before the actual data transfer.
-    3. **Data Transfer**: Executed the migration, transferring schema and data from the on-premise database to the Azure SQL Database.
-    4. **Post-Migration Validation**: Conducted a thorough validation post-migration to ensure data integrity and completeness.
+## Initial Setup and Configuration
 
-## Key Technologies Used
-- Microsoft Azure
-- Windows Virtual Machine
-- SQL Server
-- SQL Server Management Studio (SSMS)
-- Microsoft Remote Desktop
-- RDP Protocol
-- Azure Data Studio
-  - SQL Server Schema Compare extension
-  - Azure SQL Migration extension
+We started by establishing a foundational environment that would serve as the backbone of our database operations:
 
-## Verification of Migration
-To confirm the success of the database migration process, a comprehensive validation was carried out. This included:
-- **Data Integrity Checks**: Ensuring that all data was accurately migrated without any loss.
-- **Schema Validation**: Confirming that the database schema in the Azure SQL Database mirrors the original on-premise schema.
-- **Configuration Review**: Verifying that all database configurations and settings are correctly implemented in the Azure environment.
-- **Performance Testing**: Conducting tests to evaluate the performance and responsiveness of the migrated database under typical load conditions.
+- **Virtual Machine Deployment**: Provisioned a Windows Virtual Machine (VM) on Microsoft Azure designed to replicate the role of a primary server akin to an on-premise setup.
+- **Network Configuration**: Meticulously configured network settings and established firewall rules to facilitate secure connections via Remote Desktop Protocol (RDP).
+- **Database Tools Installation**: Deployed SQL Server and SQL Server Management Studio (SSMS) on the VM to furnish a robust suite of management tools for our database.
+- **Database Restoration**: The production database was reconstituted from a backup of the AdventureWorks sample database, thus ensuring the availability of a comprehensive dataset for subsequent tasks.
 
-The successful completion of these validation steps assures that the database migration upholds the principles of data integrity and operational continuity in its new cloud environment.
+## Data Backup and Restoration Journey
+
+Our commitment to data integrity led us to implement a rigorous backup regimen:
+
+- **Maintenance Plans**: Implemented SSMS Maintenance Plans for systematic and regular backups, thus ensuring data was consistently safeguarded.
+- **Azure Blob Storage**: Leveraged the robust and secure Azure Blob Storage to store backup files, providing redundancy and protecting against potential data loss scenarios.
+- **Restoration Validation**: Demonstrated the reliability of our backup process by seamlessly restoring the production environment onto a development VM, validating the backup's efficacy.
+
+## Geo-Replication and Failover Strategy
+
+To ensure business continuity and data availability, we structured a geo-replication and failover strategy:
+
+- **Geo-Replication Configuration**: Established geo-replication for our primary Azure SQL Database situated in the US East 2 region, with a synchronized secondary replica located in the US West 2 region.
+- **Planned Failover Execution**: Simulated real-world disruptions by conducting a planned failover to the secondary replica, affirming the database's resilience and the smooth transition of operations.
+- **Failback Procedure**: Completed the resilience testing cycle by performing a failback to the primary region, thus reinstating the original database service configuration.
+
+## Microsoft Entra ID Integration
+
+Embracing modern access management solutions, we integrated Microsoft Entra ID to enhance security and user experience:
+
+- **Identity Management**: Seamlessly integrated Microsoft Entra ID to manage user access to the Azure SQL Database, moving beyond traditional authentication methods.
+- **Role-Based Access Control**: Configured distinct role definitions and established both admin and reader accounts, effectively delineating access control within the database environment.
+- **User Experience and Security**: By adopting Microsoft Entra ID, we not only streamlined user management but also fortified our database against unauthorized access, leveraging features like Multi-factor Authentication (MFA) for an enhanced security posture.
+
+## Architectural Summary and Diagram
+
+The architecture of our Azure SQL Database project is visually summarized in the following UML diagram, providing a clear depiction of the components and their interactions within our cloud-based database system.
+
+![AZURE UML Diagram](Azure Project Diagram.jpeg)
+
+## Conclusion
+
+This README serves as a comprehensive record of the project, detailing each phase from initial configuration to the integration of cutting-edge identity management solutions. It stands as testament to our dedication to creating a resilient, secure, and efficiently managed database environment in Azure.
+
