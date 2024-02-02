@@ -1,7 +1,9 @@
-# Azure SQL Database Project Documentation
+# Azure Database Migration Documentation
 
 ## Project Overview
-This documentation outlines the comprehensive steps I took to architect and implement a secure, cloud-based database system on Microsoft Azure. It encapsulates the entire process from initial setup to integration with Microsoft Entra ID, emphasizing the strategic implementation of geo-replication and failover procedures.
+
+This documentation chronicles the detailed steps of my Azure Database Migration project, which involved architecting and implementing a secure, cloud-based database system within Microsoft Azure. From the ground up, I managed the entire migration process, emphasizing the adoption of Microsoft Entra ID for secure access management, and meticulously executed geo-replication and failover strategies to ensure data availability and integrity across geographic locations.
+
 
 ## Initial Setup and Configuration
 I started by establishing a foundational environment that would serve as the backbone of our database operations:
