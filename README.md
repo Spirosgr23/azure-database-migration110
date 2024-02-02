@@ -41,7 +41,8 @@ Embracing modern access management solutions, we integrated Microsoft Entra ID t
 
 The architecture of our Azure SQL Database project is visually summarized in the following UML diagram, providing a clear depiction of the components and their interactions within our cloud-based database system.
 
-[![AZURE UML Diagram](https://github.com/Spirosgr23/azure-database-migration110/blob/main/Azure%20Project%20Diagram.jpeg)
+![AZURE UML Diagram](https://github.com/Spirosgr23/azure-database-migration110/blob/main/Azure%20Project%20Diagram.jpeg)
+
 
 ## Conclusion
 
